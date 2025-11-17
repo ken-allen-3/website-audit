@@ -1,0 +1,694 @@
+/* ==================== ROOT VARIABLES ==================== */
+:root {
+  --primary-blue: #2563eb;
+  --success-green: #4CAF50;
+  --warning-orange: #FF9800;
+  --danger-red: #F44336;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --border-color: #e5e7eb;
+  --background-light: #f9fafb;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --border-radius: 8px;
+}
+
+/* ==================== GLOBAL STYLES ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* ==================== CONTAINER ==================== */
+.audit-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==================== SCREEN TRANSITIONS ==================== */
+.screen {
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  padding: 40px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== HEADER ==================== */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.header h2 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.header p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+/* ==================== FORMS ==================== */
+.audit-form,
+.email-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group input.error {
+  border-color: var(--danger-red);
+}
+
+.error-message {
+  display: block;
+  color: var(--danger-red);
+  font-size: 0.875rem;
+  margin-top: 6px;
+}
+
+.general-error {
+  text-align: center;
+  padding: 12px;
+  background-color: rgba(244, 67, 54, 0.1);
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+}
+
+/* ==================== BUTTONS ==================== */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: center;
+  text-decoration: none;
+  font-family: inherit;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  border: 2px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--white);
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.btn-text {
+  background: none;
+  color: var(--text-light);
+  padding: 10px;
+  font-weight: 500;
+}
+
+.btn-text:hover {
+  color: var(--primary-blue);
+  background: none;
+}
+
+/* ==================== LOADING SCREEN ==================== */
+.loading-progress {
+  max-width: 400px;
+  margin: 0 auto 40px;
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.progress-item:last-child {
+  border-bottom: none;
+}
+
+.progress-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.progress-icon.loading {
+  border: 3px solid var(--border-color);
+  color: var(--text-light);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.progress-icon.complete {
+  background-color: var(--success-green);
+  color: var(--white);
+  animation: checkmark 0.3s ease;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-blue);
+  border-radius: 50%;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==================== RESULTS SCREEN ==================== */
+.overall-score {
+  margin: 30px 0;
+}
+
+.score-circle {
+  width: 150px;
+  height: 150px;
+  border: 8px solid;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.score-value {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-grade {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.scores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.score-card {
+  background: var(--background-light);
+  padding: 24px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-medium);
+}
+
+.score-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.score-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.score-bar {
+  width: 100%;
+  height: 12px;
+  background-color: var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 1s ease;
+  animation: fillBar 1s ease;
+}
+
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+}
+
+.score-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.metrics {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.metrics small {
+  background: var(--white);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+}
+
+/* ==================== ISSUES SECTION ==================== */
+.issues-section {
+  margin: 40px 0;
+  padding: 24px;
+  background: var(--background-light);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.issues-section h3 {
+  margin-bottom: 20px;
+  color: var(--text-dark);
+  font-size: 1.3rem;
+}
+
+.issues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.issue-item {
+  background: var(--white);
+  padding: 14px 16px;
+  border-radius: var(--border-radius);
+  border-left: 4px solid;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: all var(--transition-fast);
+}
+
+.issue-item:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.issue-item.severity-high {
+  border-left-color: var(--danger-red);
+}
+
+.issue-item.severity-medium {
+  border-left-color: var(--warning-orange);
+}
+
+.issue-item.severity-low {
+  border-left-color: var(--text-light);
+}
+
+.issue-badge {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.issue-message {
+  flex: 1;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+/* ==================== ACTIONS ==================== */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+/* ==================== THANK YOU SCREEN ==================== */
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background-color: var(--success-green);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin: 0 auto 20px;
+  animation: successPop 0.5s ease;
+}
+
+@keyframes successPop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.next-steps {
+  background: var(--background-light);
+  padding: 24px;
+  border-radius: var(--border-radius);
+  margin: 30px 0;
+  text-align: left;
+}
+
+.next-steps h3 {
+  margin-bottom: 16px;
+  color: var(--text-dark);
+}
+
+.next-steps ul {
+  list-style: none;
+  padding: 0;
+}
+
+.next-steps li {
+  padding: 10px 0;
+  padding-left: 28px;
+  position: relative;
+  color: var(--text-dark);
+}
+
+.next-steps li:before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .audit-container {
+    padding: 16px;
+  }
+
+  .screen {
+    padding: 24px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .header h2 {
+    font-size: 1.6rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  .score-circle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .score-value {
+    font-size: 2.5rem;
+  }
+
+  .score-grade {
+    font-size: 1.2rem;
+  }
+
+  .scores-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .audit-container {
+    padding: 12px;
+  }
+
+  .screen {
+    padding: 20px 16px;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .header h2 {
+    font-size: 1.4rem;
+  }
+
+  .header p {
+    font-size: 0.95rem;
+  }
+
+  .form-group input {
+    padding: 10px 14px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+
+  .score-circle {
+    width: 100px;
+    height: 100px;
+    border-width: 6px;
+  }
+
+  .score-value {
+    font-size: 2rem;
+  }
+
+  .score-grade {
+    font-size: 1rem;
+  }
+
+  .score-card {
+    padding: 16px;
+  }
+
+  .score-card h3 {
+    font-size: 1rem;
+  }
+
+  .score-number {
+    font-size: 1.2rem;
+  }
+
+  .issues-section {
+    padding: 16px;
+  }
+
+  .issue-item {
+    padding: 10px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .issue-badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .issue-message {
+    font-size: 0.9rem;
+  }
+
+  .next-steps {
+    padding: 16px;
+  }
+
+  .next-steps li {
+    font-size: 0.95rem;
+  }
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+*:focus-visible {
+  outline: 3px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+  .audit-container {
+    box-shadow: none;
+  }
+
+  .btn {
+    display: none;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .screen {
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+  }
+}
