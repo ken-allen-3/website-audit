@@ -4,6 +4,7 @@ A production-ready React component that provides real-time website analysis incl
 
 ![Website Audit Tool](https://img.shields.io/badge/React-Component-blue)
 ![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-green)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy)
 
 ## Features
 
@@ -33,15 +34,79 @@ A production-ready React component that provides real-time website analysis incl
 - No external dependencies beyond React
 - Console error-free
 
-## Quick Start
+## Deployment
 
-### 1. Installation
+### Deploy to Netlify (Recommended)
+
+This project is ready for one-click deployment to Netlify!
+
+#### Option 1: Deploy from GitHub
+
+1. **Push your code to GitHub** (if not already done)
+
+2. **Go to [Netlify](https://www.netlify.com/)** and sign in
+
+3. **Click "Add new site" → "Import an existing project"**
+
+4. **Connect your GitHub repository**
+
+5. **Configure build settings** (Netlify should auto-detect these):
+   - Build command: `npm run build`
+   - Publish directory: `build`
+   - Node version: `18`
+
+6. **Add environment variables** in Netlify dashboard:
+   - Go to Site settings → Environment variables
+   - Add:
+     - `REACT_APP_GOOGLE_API_KEY`: Your Google API key
+     - `REACT_APP_ZAPIER_WEBHOOK`: Your Zapier webhook URL
+     - `REACT_APP_BOOKING_LINK`: Your booking/calendar link
+
+7. **Click "Deploy site"**
+
+Your site will be live at a Netlify URL (e.g., `https://your-site-name.netlify.app`)
+
+#### Option 2: Deploy via Netlify CLI
 
 ```bash
-# Copy the component files to your React project
-cp WebsiteAuditTool.jsx src/components/
-cp WebsiteAuditTool.css src/components/
+# Install Netlify CLI
+npm install -g netlify-cli
+
+# Login to Netlify
+netlify login
+
+# Deploy (from project root)
+netlify deploy --prod
 ```
+
+#### Option 3: Drag & Drop Deploy
+
+```bash
+# Build the project locally
+npm install
+npm run build
+
+# Drag and drop the 'build' folder to Netlify's deploy page
+# https://app.netlify.com/drop
+```
+
+## Quick Start
+
+### 1. Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Create environment file
+cp .env.example .env
+
+# Edit .env with your API keys
+# Then start development server
+npm start
+```
+
+The app will open at `http://localhost:3000`
 
 ### 2. Environment Setup
 
